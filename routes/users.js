@@ -29,6 +29,16 @@ router.post("/signup", function(req, res, next) {
   })
 });
 
+router.get('/get-sightings', function(req, res, next) {
+  sightingController.getAllSightings()
+                    .then( sightings => {
+                      res.send(sightings)
+                    })
+                    .catch( error => {
+                      res.json(error)
+                    })
+})
+
 /* POST a Sighting */
 router.post(
   "/new-sighting", function(req, res, next) {

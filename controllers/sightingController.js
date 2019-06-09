@@ -19,5 +19,18 @@ module.exports = {
           reject(error)
       })
     });
+  },
+
+  getAllSightings: () => {
+    return new Promise((resolve, reject) => {
+      Sighting.find()
+              .then( sightings => {
+                console.log(sightings)
+                resolve(sightings)
+              })
+              .catch( error => {
+                reject(error)
+              })
+    })
   }
 };
